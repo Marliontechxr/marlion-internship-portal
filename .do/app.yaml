@@ -3,6 +3,7 @@ region: blr
 services:
   - name: student-app
     dockerfile_path: Dockerfile
+    build_command: ""
     github:
       repo: Marliontechxr/marlion-internship-portal
       branch: main
@@ -10,29 +11,42 @@ services:
     instance_count: 1
     instance_size_slug: apps-s-1vcpu-0.5gb
     http_port: 3000
+    routes:
+      - path: /
     envs:
       - key: NODE_ENV
         value: production
+        scope: BUILD_TIME
       - key: PORT
         value: "3000"
       - key: HOSTNAME
         value: "0.0.0.0"
       - key: NEXT_PUBLIC_FIREBASE_API_KEY
         value: "AIzaSyDcOhIcq62aZuh0YVTcjsNdlysCdTYFfjQ"
+        scope: BUILD_TIME
       - key: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
         value: "marlioninternshipportal2025.firebaseapp.com"
+        scope: BUILD_TIME
       - key: NEXT_PUBLIC_FIREBASE_PROJECT_ID
         value: "marlioninternshipportal2025"
+        scope: BUILD_TIME
       - key: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
         value: "marlioninternshipportal2025.firebasestorage.app"
+        scope: BUILD_TIME
       - key: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
         value: "593947094542"
+        scope: BUILD_TIME
       - key: NEXT_PUBLIC_FIREBASE_APP_ID
         value: "1:593947094542:web:9ed58b16bcf50ed59d165f"
+        scope: BUILD_TIME
       - key: NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
         value: "G-CMYEE92CG7"
+        scope: BUILD_TIME
       - key: DO_AI_API_KEY
         value: "sk-do--LMZmnIi-nmJHmVUJTs3p0RyTkQeArAcfoCdCLtFaXMRnPX-AkgIow7QMC"
         type: SECRET
       - key: DO_AI_MODEL
         value: "llama3.3-70b-instruct"
+      - key: NEXT_PUBLIC_APP_URL
+        value: "https://internship.marliontech.com"
+        scope: BUILD_TIME

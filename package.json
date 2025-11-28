@@ -7,7 +7,8 @@
   ],
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build",
+    "build": "turbo run build --filter=student...",
+    "start": "npm run start --prefix apps/student",
     "lint": "turbo run lint",
     "dev:student": "turbo run dev --filter=student",
     "dev:admin": "turbo run dev --filter=admin",

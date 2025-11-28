@@ -1,30 +1,36 @@
-name: marlion-winter25
+name: marlion-internship-portal
+region: blr
 services:
-  - name: student
+  - name: student-app
+    github:
+      repo: Marliontechxr/marlion-internship-portal
+      branch: main
+      deploy_on_push: true
     dockerfile_path: apps/student/Dockerfile
     http_port: 3000
-    instance_size_slug: basic-xs
+    instance_size_slug: basic-xxs
     instance_count: 1
     routes:
       - path: /
     envs:
-      - key: FIREBASE_PRIVATE_KEY
-        scope: RUN_TIME
-        type: SECRET
-      - key: DO_AI_API_KEY
-        scope: RUN_TIME
-        type: SECRET
-  - name: admin
-    dockerfile_path: apps/admin/Dockerfile
-    http_port: 3001
-    instance_size_slug: basic-xs
-    instance_count: 1
-    routes:
-      - path: /
-    envs:
-      - key: FIREBASE_PRIVATE_KEY
-        scope: RUN_TIME
-        type: SECRET
-      - key: DO_AI_API_KEY
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_FIREBASE_API_KEY
+        value: AIzaSyDcOhIcq62aZuh0YVTcjsNdlysCdTYFfjQ
+      - key: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+        value: marlioninternshipportal2025.firebaseapp.com
+      - key: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+        value: marlioninternshipportal2025
+      - key: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+        value: marlioninternshipportal2025.firebasestorage.app
+      - key: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+        value: "593947094542"
+      - key: NEXT_PUBLIC_FIREBASE_APP_ID
+        value: 1:593947094542:web:9ed58b16bcf50ed59d165f
+      - key: NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+        value: G-CMYEE92CG7
+      - key: NEXT_PUBLIC_APP_URL
+        value: https://internship.marliontech.com
+      - key: OPENAI_API_KEY
         scope: RUN_TIME
         type: SECRET

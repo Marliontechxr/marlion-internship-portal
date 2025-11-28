@@ -8,6 +8,7 @@ const withPWA = require('next-pwa')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'standalone',
   transpilePackages: ['@marlion/ui', '@marlion/lib', '@marlion/config'],
   experimental: {
     serverActions: {

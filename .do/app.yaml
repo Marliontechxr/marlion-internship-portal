@@ -2,17 +2,19 @@ name: marlion-internship-portal
 region: blr
 services:
   - name: student-app
-    dockerfile_path: Dockerfile
     github:
       repo: Marliontechxr/marlion-internship-portal
       branch: main
       deploy_on_push: true
+    dockerfile_path: Dockerfile
     http_port: 3000
     instance_count: 1
-    instance_size_slug: apps-s-1vcpu-0.5gb
-    routes:
-      - path: /
+    instance_size_slug: apps-s-1vcpu-1gb
+    health_check:
+      http_path: /
     envs:
+      - key: NODE_ENV
+        value: production
       - key: NEXT_PUBLIC_FIREBASE_API_KEY
         value: "AIzaSyDcOhIcq62aZuh0YVTcjsNdlysCdTYFfjQ"
       - key: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN

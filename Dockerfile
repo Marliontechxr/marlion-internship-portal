@@ -45,8 +45,8 @@ ENV NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL
 ENV DO_AI_API_KEY=$DO_AI_API_KEY
 ENV DO_AI_MODEL=$DO_AI_MODEL
 
-# Build the student app
-RUN npm run build --workspace=apps/student
+# Build the student app (using turbo to build dependencies)
+RUN npm run build:student
 
 # Production image, copy all the files and run next
 FROM base AS runner

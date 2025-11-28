@@ -1,28 +1,26 @@
-# Build stage
-FROM node:20-alpine AS builder
+# Use Node.js 18 Alpine for smaller image
+FROM node:18-alpine AS base
 
-# Install dependencies for native modules
-RUN apk add --no-cache libc6-compat python3 make g++
-
+# Install dependencies only when needed
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Copy root package files first
-COPY package*.json ./
-COPY turbo.json ./
-COPY tsconfig.json ./
+# Copy package files
+COPY package.json package-lock.json* ./
+COPY apps/student/package.json ./apps/student/
+COPY packages/config/package.json ./packages/config/
+COPY packages/lib/package.json ./packages/lib/
+COPY packages/ui/package.json ./packages/ui/
 
-# Copy all package.json files for workspace resolution
-COPY apps/student/package*.json ./apps/student/
-COPY packages/config/package*.json ./packages/config/
-COPY packages/lib/package*.json ./packages/lib/
-COPY packages/ui/package*.json ./packages/ui/
+# Install dependencies
+RUN npm ci
 
-# Install ALL dependencies (including devDependencies for build)
-RUN npm ci --include=dev
-
-# Copy all source code
-COPY apps/student ./apps/student
-COPY packages ./packages
+# Rebuild the source code only when needed
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
 
 # Set environment variables for build
 ARG NEXT_PUBLIC_FIREBASE_API_KEY
@@ -47,29 +45,28 @@ ENV NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL
 ENV DO_AI_API_KEY=$DO_AI_API_KEY
 ENV DO_AI_MODEL=$DO_AI_MODEL
 
-# Build the student app using turbo
-RUN npm run build:student
+# Build the student app
+RUN npm run build --workspace=apps/student
 
-# Production stage
-FROM node:20-alpine AS runner
-
+# Production image, copy all the files and run next
+FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV PORT=3000
-ENV HOSTNAME=0.0.0.0
 
-# Create non-root user
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy standalone build from builder
+# Copy built assets
+COPY --from=builder /app/apps/student/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/apps/student/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/apps/student/.next/static ./apps/student/.next/static
-COPY --from=builder --chown=nextjs:nodejs /app/apps/student/public ./apps/student/public
 
 USER nextjs
 
 EXPOSE 3000
+
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
 
 CMD ["node", "apps/student/server.js"]

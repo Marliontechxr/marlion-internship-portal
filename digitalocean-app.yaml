@@ -6,13 +6,10 @@ services:
       repo: Marliontechxr/marlion-internship-portal
       branch: main
       deploy_on_push: true
-    source_dir: /
-    build_command: npm install && npm run build:student
-    run_command: cd apps/student && npm run start
-    environment_slug: node-js
-    instance_count: 1
-    instance_size_slug: apps-s-1vcpu-0.5gb
+    dockerfile_path: Dockerfile
     http_port: 3000
+    instance_count: 1
+    instance_size_slug: apps-s-1vcpu-1gb
     envs:
       - key: NODE_ENV
         value: production

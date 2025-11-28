@@ -11,8 +11,10 @@
     "lint": "turbo run lint",
     "dev:student": "turbo run dev --filter=student",
     "dev:admin": "turbo run dev --filter=admin",
-    "build:student": "turbo run build --filter=student",
-    "build:admin": "turbo run build --filter=admin"
+    "build:student": "turbo run build --filter=student...",
+    "build:admin": "turbo run build --filter=admin...",
+    "start:student": "npm run start --prefix apps/student",
+    "postinstall": "echo 'Dependencies installed'"
   },
   "devDependencies": {
     "turbo": "^2.0.0",
@@ -20,6 +22,6 @@
   },
   "packageManager": "npm@10.0.0",
   "engines": {
-    "node": ">=18.0.0"
+    "node": "18.x"
   }
 }

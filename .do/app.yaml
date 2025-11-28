@@ -6,7 +6,7 @@ services:
       repo: Marliontechxr/marlion-internship-portal
       branch: main
       deploy_on_push: true
-    dockerfile_path: Dockerfile
+    dockerfile_path: apps/student/Dockerfile
     http_port: 3000
     instance_count: 1
     instance_size_slug: apps-s-1vcpu-1gb

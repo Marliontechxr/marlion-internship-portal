@@ -1,0 +1,17 @@
+{
+  "name": "Marlion Winter Internship 2025",
+  "short_name": "Marlion Intern",
+  "description": "AI-Powered Internship Platform by Marlion Technologies",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

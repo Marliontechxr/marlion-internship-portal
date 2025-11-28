@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 263 70% 50%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  html, body {
+    background-color: #0a0f1a !important;
+    color: #f8fafc !important;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+    background-image: 
+      radial-gradient(ellipse at top, rgba(59, 130, 246, 0.1), transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(139, 92, 246, 0.05), transparent 50%) !important;
+    min-height: 100vh;
+  }
+  
+  ::selection {
+    @apply bg-marlion-primary text-white;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-marlion-surface;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-marlion-border rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-marlion-muted;
+  }
+  
+  /* Ensure form inputs have proper text colors */
+  input, textarea, select {
+    @apply text-white bg-marlion-surface;
+  }
+  
+  input::placeholder, textarea::placeholder {
+    @apply text-slate-500;
+  }
+  
+  /* Dark themed dropdown options */
+  select option {
+    @apply bg-marlion-surface text-slate-100;
+  }
+  
+  select option:checked {
+    @apply bg-marlion-primary text-white;
+  }
+}
+
+@layer components {
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-marlion-surface/80 backdrop-blur-xl;
+  }
+  
+  .glass-card {
+    @apply bg-marlion-surface/60 backdrop-blur-xl border border-marlion-border/50 shadow-xl;
+  }
+  
+  .glass-button {
+    @apply bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-all;
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-marlion-primary via-purple-400 to-marlion-accent;
+  }
+  
+  /* Primary button with glow */
+  .btn-primary {
+    @apply bg-gradient-to-r from-marlion-primary to-blue-600 text-white font-bold py-3 px-6 rounded-xl;
+    @apply shadow-lg shadow-marlion-primary/30 transition-all duration-300;
+    @apply hover:shadow-xl hover:shadow-marlion-primary/40 hover:-translate-y-0.5;
+    @apply active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-marlion-surface border border-marlion-border text-white font-bold py-3 px-6 rounded-xl;
+    @apply hover:bg-marlion-border hover:border-marlion-muted transition-all duration-300;
+  }
+  
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-300;
+    @apply hover:border-marlion-primary/50 hover:shadow-lg hover:shadow-marlion-primary/10;
+    @apply hover:-translate-y-1;
+  }
+  
+  /* Input styling */
+  .input-marlion {
+    @apply w-full bg-marlion-bg border border-marlion-border rounded-xl p-4 text-white;
+    @apply focus:border-marlion-primary focus:ring-1 focus:ring-marlion-primary/50;
+    @apply outline-none transition-all duration-200;
+    @apply placeholder:text-slate-500;
+  }
+  
+  /* Date input with light calendar picker - white icon for dark theme */
+  .date-input-light::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(2);
+    cursor: pointer;
+    opacity: 1;
+  }
+  
+  .date-input-light::-webkit-calendar-picker-indicator:hover {
+    filter: invert(1) brightness(2.5);
+    opacity: 1;
+  }
+  
+  /* Firefox date input */
+  .date-input-light {
+    color-scheme: dark;
+  }
+  
+  /* Override date picker popup to be more visible */
+  input[type="date"]::-webkit-datetime-edit {
+    @apply text-white;
+  }
+  
+  input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    @apply text-white;
+  }
+  
+  input[type="date"]::-webkit-datetime-edit-text {
+    @apply text-slate-400;
+  }
+  
+  input[type="date"]::-webkit-datetime-edit-month-field,
+  input[type="date"]::-webkit-datetime-edit-day-field,
+  input[type="date"]::-webkit-datetime-edit-year-field {
+    @apply text-white;
+  }
+  
+  /* Badge styling */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide;
+  }
+  
+  .badge-primary {
+    @apply badge bg-marlion-primary/10 text-marlion-primary border border-marlion-primary/20;
+  }
+  
+  .badge-success {
+    @apply badge bg-marlion-success/10 text-marlion-success border border-marlion-success/20;
+  }
+  
+  .badge-warning {
+    @apply badge bg-marlion-warning/10 text-marlion-warning border border-marlion-warning/20;
+  }
+  
+  .badge-error {
+    @apply badge bg-marlion-error/10 text-marlion-error border border-marlion-error/20;
+  }
+  
+  /* Section styling */
+  .section-title {
+    @apply text-4xl md:text-5xl font-black text-white mb-6;
+  }
+  
+  .section-subtitle {
+    @apply text-slate-400 max-w-2xl mx-auto text-lg;
+  }
+  
+  /* Custom scrollbar for containers */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-marlion-border rounded-full;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for horizontal scroll tabs */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .delay-75 {
+    animation-delay: 75ms;
+  }
+  
+  .delay-150 {
+    animation-delay: 150ms;
+  }
+  
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hero gradient animation */
+.hero-gradient {
+  background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #06b6d4, #22c55e);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+}
+
+.glow-accent {
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+}
+
+.glow-success {
+  box-shadow: 0 0 40px rgba(34, 197, 94, 0.3);
+}
+
+/* Text shadow for hero */
+.text-shadow-hero {
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}

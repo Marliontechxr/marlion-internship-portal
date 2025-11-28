@@ -1,0 +1,30 @@
+name: marlion-winter25
+services:
+  - name: student
+    dockerfile_path: apps/student/Dockerfile
+    http_port: 3000
+    instance_size_slug: basic-xs
+    instance_count: 1
+    routes:
+      - path: /
+    envs:
+      - key: FIREBASE_PRIVATE_KEY
+        scope: RUN_TIME
+        type: SECRET
+      - key: DO_AI_API_KEY
+        scope: RUN_TIME
+        type: SECRET
+  - name: admin
+    dockerfile_path: apps/admin/Dockerfile
+    http_port: 3001
+    instance_size_slug: basic-xs
+    instance_count: 1
+    routes:
+      - path: /
+    envs:
+      - key: FIREBASE_PRIVATE_KEY
+        scope: RUN_TIME
+        type: SECRET
+      - key: DO_AI_API_KEY
+        scope: RUN_TIME
+        type: SECRET

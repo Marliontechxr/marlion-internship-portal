@@ -1,0 +1,25 @@
+{
+  "name": "marlion-winter25",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "dev:student": "turbo run dev --filter=student",
+    "dev:admin": "turbo run dev --filter=admin",
+    "build:student": "turbo run build --filter=student",
+    "build:admin": "turbo run build --filter=admin"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.3.0"
+  },
+  "packageManager": "npm@10.0.0",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

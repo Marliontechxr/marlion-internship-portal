@@ -1,0 +1,13 @@
+{
+  "projects": {
+    "default": "marlioninternshipportal2025"
+  },
+  "targets": {
+    "marlioninternshipportal2025": {
+      "hosting": {
+        "student": ["marlioninternshipportal2025"],
+        "admin": ["marlion-admin"]
+      }
+    }
+  }
+}

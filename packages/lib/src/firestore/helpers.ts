@@ -178,7 +178,7 @@ export async function addDailyLog(
 
   // Increment student's log count
   await updateDocument('students', studentId, {
-    dailyLogsCount: (await getStudent(studentId))?.dailyLogsCount ?? 0 + 1,
+    dailyLogsCount: ((await getStudent(studentId))?.dailyLogsCount ?? 0) + 1,
   });
 
   return logRef.id;

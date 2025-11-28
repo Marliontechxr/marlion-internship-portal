@@ -15,7 +15,11 @@
     "build:student": "turbo run build --filter=student...",
     "build:admin": "turbo run build --filter=admin...",
     "start:student": "npm run start --prefix apps/student",
-    "postinstall": "echo 'Dependencies installed'"
+    "postinstall": "echo 'Dependencies installed'",
+    "deploy": "firebase deploy --only hosting",
+    "deploy:all": "firebase deploy",
+    "deploy:rules": "firebase deploy --only firestore:rules,storage:rules",
+    "deploy:indexes": "firebase deploy --only firestore:indexes"
   },
   "devDependencies": {
     "turbo": "^2.0.0",

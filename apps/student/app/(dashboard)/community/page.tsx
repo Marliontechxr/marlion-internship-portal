@@ -328,7 +328,7 @@ export default function CommunityPage() {
 
       // Share to LinkedIn if requested
       if (shareToLinkedIn && ['work', 'insight'].includes(selectedType)) {
-        const shareUrl = `https://internship.marliontech.com/share/post/${newPostRef.id}?name=${encodeURIComponent(studentData.name || 'Student')}&stream=${encodeURIComponent(studentData.chosenStream || '')}&title=${encodeURIComponent(formData.title)}`;
+        const shareUrl = `https://intern.marliontech.com/share/post/${newPostRef.id}?name=${encodeURIComponent(studentData.name || 'Student')}&stream=${encodeURIComponent(studentData.chosenStream || '')}&title=${encodeURIComponent(formData.title)}`;
         openLinkedInShare({
           ...generateCommunityPostShareContent({
             postType: selectedType as 'work' | 'insight' | 'help',
@@ -829,7 +829,7 @@ function PostCard({
          (post.authorId === userId && ['work', 'insight'].includes(post.type)) ? (
           <button
             onClick={() => {
-              const baseUrl = 'https://internship.marliontech.com';
+              const baseUrl = 'https://intern.marliontech.com';
               if (post.type === 'spotlight') {
                 const shareUrl = `${baseUrl}/share/post/${post.id}?name=${encodeURIComponent(post.featuredStudentName || post.authorName)}&stream=${encodeURIComponent(post.stream || '')}&title=${encodeURIComponent(post.title)}`;
                 openLinkedInShare({

@@ -33,7 +33,7 @@ export function LinkedInShareButton({
 
   const baseUrl = typeof window !== 'undefined' 
     ? `${window.location.protocol}//${window.location.host}`
-    : 'https://internship.marliontech.com';
+    : 'https://intern.marliontech.com';
 
   // Generate the shareable URL based on type
   const getShareUrl = () => {
@@ -166,7 +166,7 @@ Working on technology solutions for neurodiverse children has been an incredible
                 </div>
                 <div>
                   <p className="text-xs text-white">{type === 'certificate' ? 'Certificate' : type === 'portfolio' ? 'Portfolio' : 'Post'} - {studentName}</p>
-                  <p className="text-xs text-slate-500">internship.marliontech.com</p>
+                  <p className="text-xs text-slate-500">intern.marliontech.com</p>
                 </div>
               </div>
             </div>
@@ -230,7 +230,7 @@ export function ShareMenu({
 
   const baseUrl = typeof window !== 'undefined' 
     ? `${window.location.protocol}//${window.location.host}`
-    : 'https://internship.marliontech.com';
+    : 'https://intern.marliontech.com';
 
   const getShareUrl = () => {
     switch (type) {

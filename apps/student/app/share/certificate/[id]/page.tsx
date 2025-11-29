@@ -19,7 +19,7 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
       title: `🎓 ${name} - Certificate of Completion`,
       description: `Successfully completed the ${stream} internship at Marlion Technologies. Building technology for neurodiverse children.`,
       type: 'website',
-      url: `https://internship.marliontech.com/share/certificate/${id}`,
+      url: `https://intern.marliontech.com/share/certificate/${id}`,
       siteName: 'Marlion Internship Portal',
       images: [
         {

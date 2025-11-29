@@ -57,7 +57,7 @@ export function generateOfferLetterHTML(data: OfferLetterData): string {
 
   const refNumber = data.refNumber || generateOfferRefNumber();
   const verifyId = refNumber.replace(/\//g, '-');
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://internship.marliontech.com/verify/${verifyId}`;
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://intern.marliontech.com/verify/${verifyId}`;
 
   return `
 <!DOCTYPE html>
@@ -449,7 +449,7 @@ export function generateOfferLetterHTML(data: OfferLetterData): string {
       <strong>🔒 Authenticity Verification</strong><br>
       This document is digitally generated and tamper-evident.<br>
       To verify its authenticity, scan the QR code or visit:<br>
-      <a href="https://internship.marliontech.com/verify/${verifyId}" class="verify-link">internship.marliontech.com/verify/${verifyId}</a><br>
+      <a href="https://intern.marliontech.com/verify/${verifyId}" class="verify-link">intern.marliontech.com/verify/${verifyId}</a><br>
       <span class="doc-id">Document ID: ${refNumber}</span>
     </div>
   </div>
@@ -871,7 +871,7 @@ export function generateCertificateHTML(data: CertificateData): string {
     <div class="verification-footer">
       <p>
         <span class="verify-code">${data.verificationCode}</span>
-        &nbsp;•&nbsp; Verify at: <a href="https://internship.marliontech.com/verify/${data.verificationCode}" class="verify-link">internship.marliontech.com/verify/${data.verificationCode}</a>
+        &nbsp;•&nbsp; Verify at: <a href="https://intern.marliontech.com/verify/${data.verificationCode}" class="verify-link">intern.marliontech.com/verify/${data.verificationCode}</a>
       </p>
     </div>
   </div>
@@ -913,7 +913,7 @@ export function generateIdCardHTML(data: IdCardData): string {
 
   const streamName = streamNames[data.stream] || data.stream;
   const streamColor = streamColors[data.stream] || '#3b82f6';
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://internship.marliontech.com/verify/${data.studentId}`;
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://intern.marliontech.com/verify/${data.studentId}`;
 
   return `
 <!DOCTYPE html>
@@ -1277,7 +1277,7 @@ export function generateIdCardHTML(data: IdCardData): string {
       
       <div class="back-footer">
         <div class="verify-text">Verify at</div>
-        <div class="verify-link">internship.marliontech.com/verify/${data.studentId}</div>
+        <div class="verify-link">intern.marliontech.com/verify/${data.studentId}</div>
       </div>
     </div>
   </div>

@@ -131,8 +131,8 @@ export default function VerificationPortal() {
               marliontech.com
             </a>
             <span className="text-white/20">|</span>
-            <a href="https://internship.marliontech.com" className="text-blue-400 text-xs hover:underline">
-              internship.marliontech.com
+            <a href="https://intern.marliontech.com" className="text-blue-400 text-xs hover:underline">
+              intern.marliontech.com
             </a>
           </div>
         </div>

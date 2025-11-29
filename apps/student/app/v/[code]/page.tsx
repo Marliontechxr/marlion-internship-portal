@@ -111,10 +111,10 @@ export default function UnifiedVerifyPage() {
             Marlion Technologies Pvt. Ltd. | A34, Kumarasamy Street, Madurai
           </p>
           <a 
-            href="https://internship.marliontech.com" 
+            href="https://intern.marliontech.com" 
             className="text-blue-400 text-xs hover:underline mt-2 inline-block"
           >
-            internship.marliontech.com
+            intern.marliontech.com
           </a>
         </div>
       </div>

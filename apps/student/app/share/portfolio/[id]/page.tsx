@@ -19,7 +19,7 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
       title: `🚀 ${name}'s Internship Portfolio`,
       description: `${stream} Intern at Marlion Technologies. ${rating ? `⭐ ${rating}/5 Average Rating.` : ''} Building innovative solutions for neurodiverse children.`,
       type: 'website',
-      url: `https://internship.marliontech.com/share/portfolio/${id}`,
+      url: `https://intern.marliontech.com/share/portfolio/${id}`,
       siteName: 'Marlion Internship Portal',
       images: [
         {

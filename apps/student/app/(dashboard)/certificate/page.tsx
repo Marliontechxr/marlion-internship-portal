@@ -523,7 +523,7 @@ export default function CertificatePage() {
                     
                     // Generate verification code if not exists
                     const verificationCode = student.certificateId || generateVerificationCode();
-                    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://internship.marliontech.com/verify/${verificationCode}`;
+                    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://intern.marliontech.com/verify/${verificationCode}`;
                     
                     // Get correct college name
                     const collegeName = student.college === 'Other' && student.collegeOther 
@@ -563,7 +563,7 @@ export default function CertificatePage() {
                 <button
                   onClick={() => {
                     // Use share page URL with OG metadata for rich preview
-                    const shareUrl = `https://internship.marliontech.com/share/certificate/${student.certificateId}?name=${encodeURIComponent(student.name)}&stream=${encodeURIComponent(student.chosenStream)}`;
+                    const shareUrl = `https://intern.marliontech.com/share/certificate/${student.certificateId}?name=${encodeURIComponent(student.name)}&stream=${encodeURIComponent(student.chosenStream)}`;
                     openLinkedInShare(generateCertificateShareContent({
                       studentName: student.name,
                       stream: student.chosenStream,
@@ -583,7 +583,7 @@ export default function CertificatePage() {
                   </div>
                 )}
                 <p className="mt-3 text-xs text-slate-500">
-                  Verify at: internship.marliontech.com/verify/{student.certificateId}
+                  Verify at: intern.marliontech.com/verify/{student.certificateId}
                 </p>
               </div>
             ) : hasRequested ? (

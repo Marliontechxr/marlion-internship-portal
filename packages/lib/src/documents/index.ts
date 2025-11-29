@@ -1,7 +1,7 @@
 /**
  * Document Permalink Management System
  * 
- * URL Structure for internship.marliontech.com:
+ * URL Structure for intern.marliontech.com:
  * 
  * Offer Letters:    /v/offer/{documentId}     → e.g., /v/offer/INT25W4KX9
  * Certificates:     /v/cert/{documentId}      → e.g., /v/cert/MT25WA3B2
@@ -89,7 +89,7 @@ export function generateShortCode(): string {
 
 // Get the base URL for documents
 export function getDocumentBaseUrl(): string {
-  return process.env.NEXT_PUBLIC_APP_URL || 'https://internship.marliontech.com';
+  return process.env.NEXT_PUBLIC_APP_URL || 'https://intern.marliontech.com';
 }
 
 // Generate full URL for a document

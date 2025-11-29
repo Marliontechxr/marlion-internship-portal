@@ -283,7 +283,7 @@ export default function PortfolioPage() {
     
     const overallRating = calculateOverallRating();
     // Use share page URL with OG metadata for rich LinkedIn preview
-    const portfolioUrl = `https://internship.marliontech.com/share/portfolio/${student.id}?name=${encodeURIComponent(student.name)}&stream=${encodeURIComponent(student.chosenStream)}&rating=${overallRating.toFixed(1)}`;
+    const portfolioUrl = `https://intern.marliontech.com/share/portfolio/${student.id}?name=${encodeURIComponent(student.name)}&stream=${encodeURIComponent(student.chosenStream)}&rating=${overallRating.toFixed(1)}`;
     
     openLinkedInShare(generatePortfolioShareContent({
       studentName: student.name,
@@ -754,7 +754,7 @@ export default function PortfolioPage() {
               <span>Winter Internship 2025</span>
             </div>
             <div className="text-gray-500 text-xs">
-              internship.marliontech.com
+              intern.marliontech.com
             </div>
           </div>
         </div>

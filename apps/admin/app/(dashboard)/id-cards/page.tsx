@@ -184,7 +184,7 @@ export default function IDCardsPage() {
   };
 
   const generateVerificationUrl = (studentId: string) => {
-    return `https://internship.marliontech.com/verify/id/${studentId}`;
+    return `https://intern.marliontech.com/verify/id/${studentId}`;
   };
 
   // Convert Firebase images to base64 to avoid CORS issues
@@ -403,7 +403,7 @@ export default function IDCardsPage() {
     pdf.rect(x, footerY - 2, cardWidth, 7, 'F');
     pdf.setFontSize(4);
     pdf.setTextColor(150, 150, 150);
-    pdf.text(`internship.marliontech.com/verify/id/${student.id.substring(0, 12)}`, x + cardWidth / 2, footerY + 1.5, { align: 'center' });
+    pdf.text(`intern.marliontech.com/verify/id/${student.id.substring(0, 12)}`, x + cardWidth / 2, footerY + 1.5, { align: 'center' });
   };
 
   const downloadSingleCard = async (student: Student) => {
@@ -766,7 +766,7 @@ export default function IDCardsPage() {
                 {/* Footer */}
                 <div className="px-3 py-1.5 bg-gray-50 border-t border-gray-100">
                   <p className="text-[9px] text-gray-400 text-center">
-                    internship.marliontech.com/verify/id/{student.id.substring(0, 8)}...
+                    intern.marliontech.com/verify/id/{student.id.substring(0, 8)}...
                   </p>
                 </div>
               </div>

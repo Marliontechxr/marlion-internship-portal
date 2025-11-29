@@ -19,7 +19,7 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
       title: `💬 ${name} - Marlion Community`,
       description: title || `${stream} Intern sharing their journey at Marlion Technologies. Building technology for neurodiverse children.`,
       type: 'article',
-      url: `https://internship.marliontech.com/share/post/${id}`,
+      url: `https://intern.marliontech.com/share/post/${id}`,
       siteName: 'Marlion Internship Portal',
       images: [
         {

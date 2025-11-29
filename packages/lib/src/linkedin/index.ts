@@ -1,7 +1,7 @@
 // LinkedIn Sharing Utilities for Marlion Internship Portal
 
 const MARLION_LINKEDIN_PAGE = 'https://www.linkedin.com/company/marliontech';
-const MARLION_WEBSITE = process.env.NEXT_PUBLIC_APP_URL || 'https://internship.marliontech.com';
+const MARLION_WEBSITE = process.env.NEXT_PUBLIC_APP_URL || 'https://intern.marliontech.com';
 
 /**
  * Generate a shareable page URL

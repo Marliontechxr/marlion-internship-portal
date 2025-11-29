@@ -334,10 +334,10 @@ export default function VerifyPage() {
             For queries: social@marliontech.com | +91 94867 34438
           </p>
           <a 
-            href="https://internship.marliontech.com" 
+            href="https://intern.marliontech.com" 
             className="text-blue-400 text-xs hover:underline mt-2 inline-block"
           >
-            internship.marliontech.com
+            intern.marliontech.com
           </a>
         </div>
       </div>

@@ -138,7 +138,7 @@ export async function GET(request: NextRequest) {
             }}>
               M
             </div>
-            <span style={{ color: '#64748B', fontSize: '16px' }}>internship.marliontech.com</span>
+            <span style={{ color: '#64748B', fontSize: '16px' }}>intern.marliontech.com</span>
           </div>
         </div>
       ),
@@ -299,7 +299,7 @@ export async function GET(request: NextRequest) {
                 <span style={{ color: '#64748B', fontSize: '12px' }}>Empowering Innovation</span>
               </div>
             </div>
-            <span style={{ color: '#64748B', fontSize: '14px' }}>internship.marliontech.com</span>
+            <span style={{ color: '#64748B', fontSize: '14px' }}>intern.marliontech.com</span>
           </div>
         </div>
       ),

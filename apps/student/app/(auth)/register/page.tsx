@@ -315,6 +315,17 @@ export default function RegisterPage() {
         setFieldErrors(prev => ({ ...prev, department: 'Enter valid department code (e.g., CSE, ECE, IT)' }));
       }
     }
+    
+    // When start date changes, clear end date if it's now invalid (less than 15 days from new start)
+    if (field === 'internshipStart' && value) {
+      const minEndDate = new Date(new Date(value).getTime() + 15 * 24 * 60 * 60 * 1000);
+      setFormData((prev) => {
+        if (prev.internshipEnd && new Date(prev.internshipEnd) < minEndDate) {
+          return { ...prev, internshipStart: value, internshipEnd: '' };
+        }
+        return { ...prev, internshipStart: value };
+      });
+    }
   };
 
   const handleIdCardUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -1017,7 +1028,7 @@ export default function RegisterPage() {
                     type="date" 
                     value={formData.internshipStart} 
                     onChange={handleChange('internshipStart')} 
-                    min="2025-11-26" 
+                    min="2025-12-05" 
                     className="input-marlion date-input-light" 
                     required 
                   />
@@ -1028,13 +1039,13 @@ export default function RegisterPage() {
                     type="date" 
                     value={formData.internshipEnd} 
                     onChange={handleChange('internshipEnd')} 
-                    min={formData.internshipStart || "2025-12-10"} 
+                    min={formData.internshipStart ? new Date(new Date(formData.internshipStart).getTime() + 15 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] : "2025-12-20"} 
                     className="input-marlion date-input-light" 
                     required 
                   />
                 </div>
               </div>
-              <p className="text-xs text-slate-500">Minimum duration: 14 days (2 weeks to 6 months)</p>
+              <p className="text-xs text-slate-500">Minimum duration: 15 days (starts from Dec 5, 2025)</p>
 
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">Special Requests (Optional)</label>

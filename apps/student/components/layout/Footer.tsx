@@ -51,9 +51,9 @@ export function Footer() {
             <h3 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/register" className="text-slate-400 hover:text-white transition-colors text-sm">
-                  Register
-                </Link>
+                <span className="text-slate-500 text-sm cursor-not-allowed" title="Registration closed">
+                  Register (Closed)
+                </span>
               </li>
               <li>
                 <Link href="/login" className="text-slate-400 hover:text-white transition-colors text-sm">

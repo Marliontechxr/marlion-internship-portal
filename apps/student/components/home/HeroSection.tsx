@@ -12,10 +12,10 @@ export function HeroSection() {
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-marlion-surface/80 border border-marlion-border/50 mb-8 animate-fade-in backdrop-blur-md hover:border-marlion-primary/30 transition-colors cursor-default">
-          <span className="w-2 h-2 rounded-full bg-marlion-success animate-pulse"></span>
+          <span className="w-2 h-2 rounded-full bg-red-500"></span>
           <span className="text-slate-300 text-xs font-bold tracking-wider uppercase">Winter Internship 2025</span>
           <span className="w-px h-3 bg-slate-700 mx-1"></span>
-          <span className="text-marlion-primary text-xs font-bold">Deadline: 7 Dec</span>
+          <span className="text-red-400 text-xs font-bold">Registration Closed</span>
         </div>
 
         {/* Main Heading */}
@@ -34,12 +34,13 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <div className="flex flex-row gap-3 sm:gap-5 justify-center mb-16 animate-fade-in">
-          <Link href="/register">
-            <button className="bg-gradient-to-r from-marlion-primary to-blue-600 hover:to-blue-500 text-white px-5 sm:px-10 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-lg shadow-[0_10px_40px_-10px_rgba(59,130,246,0.5)] transition-all transform hover:-translate-y-1 hover:scale-105 active:scale-95 ring-1 ring-white/20 flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap">
-              Apply Now
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
-          </Link>
+          <button 
+            disabled
+            className="bg-slate-700 text-slate-400 px-5 sm:px-10 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-lg cursor-not-allowed ring-1 ring-white/10 flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap opacity-60"
+            title="Registration closed"
+          >
+            Registration Closed
+          </button>
           <Link href="/#streams">
             <button className="glass-button text-white px-5 sm:px-10 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-lg transition-all flex items-center justify-center gap-1.5 sm:gap-3 group hover:bg-white/5 whitespace-nowrap">
               Explore Streams 

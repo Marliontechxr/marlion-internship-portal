@@ -72,11 +72,13 @@ export function Navbar() {
                     Login
                   </button>
                 </Link>
-                <Link href="/register">
-                  <button className="bg-white text-slate-950 hover:bg-slate-200 px-5 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg hover:shadow-white/10 transform hover:-translate-y-0.5">
-                    Register Now
-                  </button>
-                </Link>
+                <button 
+                  disabled
+                  className="bg-slate-600 text-slate-400 px-5 py-2.5 rounded-lg text-sm font-bold cursor-not-allowed opacity-60"
+                  title="Registration closed"
+                >
+                  Registration Closed
+                </button>
               </>
             )}
           </div>
@@ -123,11 +125,12 @@ export function Navbar() {
                     <Link href="/login">
                       <button className="w-full text-left text-slate-300 py-2">Login</button>
                     </Link>
-                    <Link href="/register">
-                      <button className="w-full bg-gradient-to-r from-marlion-primary to-blue-600 text-white py-3 rounded-xl font-bold">
-                        Register Now
-                      </button>
-                    </Link>
+                    <button 
+                      disabled
+                      className="w-full bg-slate-700 text-slate-400 py-3 rounded-xl font-bold cursor-not-allowed opacity-60"
+                    >
+                      Registration Closed
+                    </button>
                   </>
                 )}
               </div>
